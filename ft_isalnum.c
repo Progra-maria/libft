@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maricarr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/13 18:23:23 by maricarr          #+#    #+#             */
-/*   Updated: 2022/09/15 16:27:57 by maricarr         ###   ########.fr       */
+/*   Created: 2022/09/15 11:38:59 by maricarr          #+#    #+#             */
+/*   Updated: 2022/09/15 11:46:23 by maricarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-/*this header file contains the function of the libft library*/
+#include "libft.h"
 
-#ifndef _LIBFT_H_
-#define _LIBFT_H_
+/*This function tests for any character for which isalpha(3) or isdigit(3) is
+ * true.The value of the argument must be representable as an unsigned char or 
+ * the value of EOF.*/
 
-int					ft_isalpha(int c);
-int					ft_isdigit(int c);
-unsigned long int	ft_strlen(char *str);
-int					ft_isalnum(int c);
-int					ft_isascii(int c);
-int					ft_isprint(int c);
-void				*ft_memset(void *b, int c, size_t len);
-void				bzero(void *s, size_t n);
-#endif
+int ft_isalnum(int c)
+{
+	if (ft_isalpha(c) || ft_isdigit(c))
+		return (1);
+	return (0);
+}

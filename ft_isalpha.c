@@ -6,7 +6,7 @@
 /*   By: maricarr <maricarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 12:23:44 by maricarr          #+#    #+#             */
-/*   Updated: 2022/09/13 13:27:54 by maricarr         ###   ########.fr       */
+/*   Updated: 2022/09/15 12:22:00 by maricarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,5 @@
  and returns 0 if the char is not alphabetic*/
 int	ft_isalpha(int c)
 {
-		if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-			return (1);
-
-	return (0);
+		return((c >= 65 && c <= 90) || (c >= 97 && c <= 122));
 }

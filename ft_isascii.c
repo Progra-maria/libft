@@ -1,27 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maricarr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/13 18:23:23 by maricarr          #+#    #+#             */
-/*   Updated: 2022/09/15 16:27:57 by maricarr         ###   ########.fr       */
+/*   Created: 2022/09/15 12:24:37 by maricarr          #+#    #+#             */
+/*   Updated: 2022/09/15 12:49:55 by maricarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdlib.h>
-/*this header file contains the function of the libft library*/
-
-#ifndef _LIBFT_H_
-#define _LIBFT_H_
-
-int					ft_isalpha(int c);
-int					ft_isdigit(int c);
-unsigned long int	ft_strlen(char *str);
-int					ft_isalnum(int c);
-int					ft_isascii(int c);
-int					ft_isprint(int c);
-void				*ft_memset(void *b, int c, size_t len);
-void				bzero(void *s, size_t n);
-#endif
+/*function tests for an ASCII character, which is any character 
+between 0 and 127 inclusive*/
+int	ft_isascii(int c)
+{
+	return (c >= 0 && c <= 127);
+}

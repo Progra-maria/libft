@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maricarr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/15 16:28:27 by maricarr          #+#    #+#             */
-/*   Updated: 2022/09/16 13:22:08 by maricarr         ###   ########.fr       */
+/*   Created: 2022/09/16 13:59:01 by maricarr          #+#    #+#             */
+/*   Updated: 2022/09/16 20:21:06 by maricarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-/*function writes n zeroed bytes to the string s.  If n is zero, does nothing*/
-void	*ft_bzero(void *s, size_t n)
-{
-	int i;
-	char *str;
-	int len;
+/*This function copies n bytes from memory area src to memory area dst.
+If dst and src overlap, behavior is undefined.*/
 
-	i = 0;
-	str = s;
-	len = n;
-	while (i <= len)
+char	*ft_memcpy(void *dst, const void *src, size_t n)
+{	
+	if (!dst || !src)
+		return (0);
+	else
 	{
-		str[i] = 0;
-		i++;
+		while (n--)
+			*((unsigned char *)dst++) = *((unsigned char *)src++);
+		return (dst);
 	}
-	s = str;
-	return (str);
 }
-
 

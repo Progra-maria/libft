@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maricarr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/15 16:28:27 by maricarr          #+#    #+#             */
-/*   Updated: 2022/09/16 13:22:08 by maricarr         ###   ########.fr       */
+/*   Created: 2022/09/16 19:01:47 by maricarr          #+#    #+#             */
+/*   Updated: 2022/09/16 21:39:55 by maricarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-/*function writes n zeroed bytes to the string s.  If n is zero, does nothing*/
-void	*ft_bzero(void *s, size_t n)
+/*This function copies len bytes from string src to string dst.  The two strings may
+     overlap; the copy is always done in a non-destructive manner.*/
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int i;
-	char *str;
-	int len;
-
+	size_t	i;
+	
 	i = 0;
-	str = s;
-	len = n;
-	while (i <= len)
+	
+	if (!dst || !src)
+		return (0);
+	else
 	{
-		str[i] = 0;
-		i++;
+		while (len-- && src)
+			*((unsigned char *)dst++) = *((unsigned char *)src++);
+		return (dst);
 	}
-	s = str;
-	return (str);
 }
-
-

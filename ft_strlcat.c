@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maricarr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/15 11:38:59 by maricarr          #+#    #+#             */
-/*   Updated: 2022/09/20 12:08:53 by maricarr         ###   ########.fr       */
+/*   Created: 2022/09/19 12:48:11 by maricarr          #+#    #+#             */
+/*   Updated: 2022/09/20 18:29:12 by maricarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <ctype.h>
 #include "libft.h"
 
-/*This function tests for any character for which isalpha(3) or isdigit(3) is
- * true.The value of the argument must be representable as an unsigned char or 
- * the value of EOF.*/
-
-int	ft_isalnum(int c)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (1);
-	return (0);
+	size_t 	offset;
+	size_t	s_len;
+	size_t	d_len;
+
+
+	offset = ft_strlen(dst);
+	s_len = ft_strlen(src);
+	d_len = ft_strlen(dst);
+
+	if (dstsize > 0)
+	{
+		while (*src && (offset < dstsize -1))
+		{
+			*(dst + offset) = *src;
+			offset++;
+			src++;
+		}
+		*(dst + offset) = '\0';
+	}
+	if (d_len >= dstsize)
+		d_len = dstsize;
+	return (s_len + d_len);
 }

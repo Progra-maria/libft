@@ -6,7 +6,7 @@
 /*   By: maricarr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 13:59:01 by maricarr          #+#    #+#             */
-/*   Updated: 2022/09/16 20:21:06 by maricarr         ###   ########.fr       */
+/*   Updated: 2022/09/20 14:36:05 by maricarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,16 @@
 If dst and src overlap, behavior is undefined.*/
 
 char	*ft_memcpy(void *dst, const void *src, size_t n)
-{	
-	if (!dst || !src)
+{
+	const unsigned char	*l_src;
+	unsigned char		*l_dst;
+
+	l_src = src;
+	l_dst = dst;
+	if (!dst && !src)
 		return (0);
 	else
-	{
 		while (n--)
-			*((unsigned char *)dst++) = *((unsigned char *)src++);
-		return (dst);
-	}
+			*l_dst++ = *l_src++;
+	return (dst);
 }
-

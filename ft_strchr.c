@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maricarr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/15 13:38:21 by maricarr          #+#    #+#             */
-/*   Updated: 2022/09/20 12:21:48 by maricarr         ###   ########.fr       */
+/*   Created: 2022/09/19 12:05:48 by maricarr          #+#    #+#             */
+/*   Updated: 2022/09/20 16:14:46 by maricarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
-{	
-	int		i;
+char	*ft_strchr(const char *s, int c)
+{
 	char	*str;
 
-	i = 0;
-	str = b;
-	while (len--)
+	str = (char *)s;
+	c = (unsigned char)c;
+	while (*str != c)
 	{
-		str[i] = (unsigned char) c;
-		i++;
+		if (*str == 0 || !(ft_isascii(c)))
+			return (NULL);
+		str++;
 	}
-	return (b);
-}	
+	return (str);
+}

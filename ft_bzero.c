@@ -6,7 +6,7 @@
 /*   By: maricarr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 16:28:27 by maricarr          #+#    #+#             */
-/*   Updated: 2022/09/16 13:22:08 by maricarr         ###   ########.fr       */
+/*   Updated: 2022/09/20 12:41:56 by maricarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 /*function writes n zeroed bytes to the string s.  If n is zero, does nothing*/
 void	*ft_bzero(void *s, size_t n)
 {
-	int i;
-	char *str;
-	int len;
+	int		i;
+	char	*str;
+	int		len;
 
 	i = 0;
 	str = s;
 	len = n;
-	while (i <= len)
+	while (i < len)
 	{
 		str[i] = 0;
 		i++;
@@ -30,5 +30,3 @@ void	*ft_bzero(void *s, size_t n)
 	s = str;
 	return (str);
 }
-
-

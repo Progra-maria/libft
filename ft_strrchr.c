@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maricarr <maricarr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maricarr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/21 08:45:08 by maricarr          #+#    #+#             */
-/*   Updated: 2022/09/20 16:16:47 by maricarr         ###   ########.fr       */
+/*   Created: 2022/09/21 23:29:04 by maricarr          #+#    #+#             */
+/*   Updated: 2022/09/22 00:41:21 by maricarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*this function function calculates the length of a given string*/
-unsigned long int	ft_strlen(const char *str)
-{
-	unsigned long int	i;
+#include "libft.h"
 
-	i = 0;
-	while (str[i] != '\0')
+char	*ft_strrchr(const char *s, int c)
+{
+	int i;
+
+	i = ft_strlen(s);
+	while (i >= 0 && ft_isascii((unsigned char)c))
 	{
-	i++;
+		if (s[i] == (unsigned char)c)
+			return ((char *)s + i);
+		i--;
 	}
-	return (i);
+	return (0);	
 }

@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maricarr <maricarr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maricarr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/21 08:45:08 by maricarr          #+#    #+#             */
-/*   Updated: 2022/09/20 16:16:47 by maricarr         ###   ########.fr       */
+/*   Created: 2022/09/21 17:28:40 by maricarr          #+#    #+#             */
+/*   Updated: 2022/09/21 17:29:30 by maricarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*this function function calculates the length of a given string*/
-unsigned long int	ft_strlen(const char *str)
-{
-	unsigned long int	i;
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-	i++;
-	}
-	return (i);
+void *ft_calloc(size_t count, size_t size)
+{
+	void *ptr;
+	ptr = malloc(count * size);
+	if (!ptr)
+		return (NULL);
+	else
+		bzero(ptr, size * count);
+	return (ptr);
 }

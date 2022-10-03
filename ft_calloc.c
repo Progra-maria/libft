@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maricarr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: maricarr <maricarr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 17:28:40 by maricarr          #+#    #+#             */
-/*   Updated: 2022/09/21 17:29:30 by maricarr         ###   ########.fr       */
+/*   Updated: 2022/09/27 01:00:55 by maricarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include "libft.h"
 
 void *ft_calloc(size_t count, size_t size)
 {
@@ -21,6 +22,6 @@ void *ft_calloc(size_t count, size_t size)
 	if (!ptr)
 		return (NULL);
 	else
-		bzero(ptr, size * count);
+		ft_bzero(ptr, size * count);
 	return (ptr);
 }

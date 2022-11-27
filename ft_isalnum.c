@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maricarr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: maricarr <maricarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 11:38:59 by maricarr          #+#    #+#             */
-/*   Updated: 2022/09/20 12:08:53 by maricarr         ###   ########.fr       */
+/*   Updated: 2022/11/27 14:16:31 by maricarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 /*This function tests for any character for which isalpha(3) or isdigit(3) is
  * true.The value of the argument must be representable as an unsigned char or 
  * the value of EOF.*/
-
 int	ft_isalnum(int c)
 {
 	if (ft_isalpha(c) || ft_isdigit(c))

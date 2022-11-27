@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maricarr <maricarr@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: maricarr <maricarr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 13:06:00 by maricarr          #+#    #+#             */
-/*   Updated: 2022/11/09 23:27:59 by maricarr         ###   ########.fr       */
+/*   Updated: 2022/11/27 14:28:28 by maricarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/*This function marks the start of the new substring, 
+skipping the separator char*/
 static unsigned int	ft_start(char *str, char c)
 {
 	unsigned int	i;
@@ -24,6 +26,8 @@ static unsigned int	ft_start(char *str, char c)
 	return (i);
 }
 
+/*This function marks the end of the new substring, 
+erasing the separator char*/
 static unsigned int	ft_end(char *str, char c)
 {
 	unsigned int	i;
@@ -41,23 +45,25 @@ static long unsigned int	ft_countstr(const char *str, char c)
 {
 	unsigned long int	i;
 	unsigned long int	j;
-	char*			s;
+	char				*s;
 
 	i = 0;
 	j = 0;
 	s = (char *)str;
 	while (s[i])
 	{
-	if ((s[i] != c && s[i +1] == c) || (s[i] != c && s[i + 1] == '\0'))
+		if ((s[i] != c && s[i +1] == c) || (s[i] != c && s[i + 1] == '\0'))
 		j++;
 	i++;
 	}
 	return (j);
 }
 
+/*function that creates the new substring */
 char	*ft_strword(char *str, char c)
 {
-	char*	newstring;
+	char	*newstring;
+
 	newstring = ft_substr(str, ft_start(str, c), ft_end(str, c));
 	if (!newstring)
 	{
@@ -67,12 +73,14 @@ char	*ft_strword(char *str, char c)
 	return (newstring);
 }
 
+/*This function creates the string of string using malloc and 
+calls the function that creates the new substrings*/
 char	**ft_split(char const *s, char c)
 {
 	int		words;
-	char**	newstring;
-	char*	string;
-	char*	end;
+	char	**newstring;
+	char	*string;
+	char	*end;
 	int		i;
 
 	words = ft_countstr(s, c);
@@ -88,7 +96,7 @@ char	**ft_split(char const *s, char c)
 	newstring[i] = ft_strword(string, c);
 	string = &string[ft_start(string, c)];
 	end = &string[ft_end(string, c)];
-		while (*end == c)
+		while (*end == c && c != '\0')
 			end++;
 		string = end;
 	i++;

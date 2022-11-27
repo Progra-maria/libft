@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: maricarr <maricarr@student.42madrid.com    +#+  +:+       +#+         #
+#    By: maricarr <maricarr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 18:55:39 by maricarr          #+#    #+#              #
-#    Updated: 2022/09/29 09:51:38 by maricarr         ###   ########.fr        #
+#    Updated: 2022/10/13 21:27:41 by maricarr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,9 @@ SRCS = ft_isalpha.c \
 	ft_putchar_fd.c \
 	ft_putstr_fd.c \
 	ft_putendnl_fd.c \
-	ft_putnbr_fd.c
+	ft_putnbr_fd.c \
+	ft_strtrim.c \
+	ft_split.c
 
 OBJS = $(SRCS:.c=.o)
 HDRS = libft.h
